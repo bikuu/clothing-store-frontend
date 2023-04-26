@@ -1,10 +1,11 @@
-import './App.css';
+import { Container, Button } from "@mui/material";
+import Appbar from "./components/appbar";
 
 function App() {
   return (
-    <div className="App">
-     
-    </div>
+    <Container maxWidth="xl" sx={{ background: "#fcfcfc" }}>
+      <Appbar />
+    </Container>
   );
 }
 
