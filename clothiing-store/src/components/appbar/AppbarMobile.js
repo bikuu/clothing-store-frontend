@@ -1,25 +1,22 @@
-// import { AppbarContainer, AppbarHeader } from "../../styles/appbar";
-// import MenuIcon from "@mui/icons-material/Menu";
-// import SearchIcon from "@mui/icons-material/Search";
-// import Actions from "./actions";
-// import { IconButton } from "@mui/material";
-// import { useUIContext } from "../../context/ui";
-const AppbarMobile = ({matches}) => {
-//   const { setDrawerOpen, setShowSearchBox } = useUIContext();
+import { AppbarContainer, AppbarHeader } from "../../style/appbar";
+import SearchIcon from "@mui/icons-material/Search";
+import MenuIcon from "@mui/icons-material/Menu";
+import Actions from "./Actions";
+import { IconButton } from "@mui/material";
+const AppbarMobile = ({ matches }) => {
   return (
-    <h1>Mobile</h1>
-    // <AppbarContainer>
-    //   <IconButton onClick={() => setDrawerOpen(true)}>
-    //     <MenuIcon />
-    //   </IconButton>
-    //   <AppbarHeader textAlign={"center"} variant="h4">
-    //     My Bags
-    //   </AppbarHeader>
-    //   <IconButton onClick={() => setShowSearchBox(true)}>
-    //     <SearchIcon />
-    //   </IconButton>
-    //   <Actions matches={matches} />
-    // </AppbarContainer>
+    <AppbarContainer>
+      <IconButton>
+        <MenuIcon />
+      </IconButton>
+      <AppbarHeader textAlign={"center"} variant="h4">
+        Clothing Store
+      </AppbarHeader>
+      <IconButton>
+        <SearchIcon />
+      </IconButton>
+      <Actions matches={matches} />
+    </AppbarContainer>
   );
 };
 

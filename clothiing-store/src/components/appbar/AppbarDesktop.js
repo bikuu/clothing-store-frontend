@@ -1,22 +1,17 @@
 import { ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
-import {
-  AppbarContainer,
-  AppbarHeader,
-  MyList,
-} from "../../style/appbar/style";
+import { AppbarContainer, AppbarHeader, MyList } from "../../style/appbar";
 import Actions from "./Actions";
-
 
 const AppbarDesktop = ({ matches }) => {
   return (
     <AppbarContainer>
-      <AppbarHeader>Clothing Store</AppbarHeader>
+      <AppbarHeader>
+        Clothing <span style={{ color: "#fa5221" }}>Store</span>
+      </AppbarHeader>
       <MyList type="row">
         {/* <ListItemText primary="Help" /> */}
-        <ListItemText primary="Why Us" />
-        <ListItemText primary="Find/Hire" />
-        <ListItemText primary="Signup" />
-        <ListItemText primary="" />
+        <ListItemText primary="About Us" />
+        <ListItemText primary="Hire Designers" />
       </MyList>
       <Actions matches={matches} />
     </AppbarContainer>
