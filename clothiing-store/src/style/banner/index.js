@@ -13,9 +13,6 @@ export const BannerContainer = styled(Box)(({ matches, theme }) => ({
     flexDirection: "column",
     alignItems: "center",
   },
-  // backgroundImage: `url(/images/banner/banner.png)`,
-  // backgroundRepeat: "no-repeat",
-  // backgroundPosition: "center",
 }));
 
 export const BannerContent = styled(Box)(() => ({
@@ -28,9 +25,7 @@ export const BannerContent = styled(Box)(() => ({
 
 export const BannerImage = styled("img")(({ src, theme }) => ({
   src: `url(${src})`,
-  // backgroundImage: `url(${src})`,
-  // backgroundRepeat: "no-repeat",
-  // backgroundPosition: "center",
+
   width: "500px",
   [theme.breakpoints.down("md")]: {
     width: "350px",
@@ -41,7 +36,7 @@ export const BannerImage = styled("img")(({ src, theme }) => ({
   },
 }));
 
-export const BannerTitle = styled(Typography)(({ matches, theme }) => ({
+export const BannerTitle = styled(Typography)(({  theme }) => ({
   lineHeight: 1.5,
   fontSize: "72px",
   marginBottom: "20px",
@@ -64,7 +59,7 @@ export const BannerDescription = styled(Typography)(({ theme }) => ({
 export const BannerShopButton = styled(Button, {
   // Configure which props should be forwarded on DOM
   shouldForwardProp: (prop) => prop !== "color",
-  name: "MyShopButton",
+  name: "LookNowButton",
   slot: "Root",
   // We are specifying here how the styleOverrides are being applied based on props
   overridesResolver: (props, styles) => [
