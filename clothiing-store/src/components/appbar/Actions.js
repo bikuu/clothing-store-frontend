@@ -1,11 +1,12 @@
-import { ListItemIcon, Input } from "@mui/material";
+import { ListItemIcon, Typography, ListItemText } from "@mui/material";
 import {
   ActionIconsContainerDesktop,
   ActionIconsContainerMobile,
   MyList,
+  StyledBadge,
 } from "../../style/appbar";
 import PersonIcon from "@mui/icons-material/Person";
-import SearchIcon from "@mui/icons-material/Search";
+import Avatar from "@mui/material/Avatar";
 
 const Actions = ({ matches }) => {
   const Component = matches
@@ -13,20 +14,23 @@ const Actions = ({ matches }) => {
     : ActionIconsContainerDesktop;
   return (
     <Component>
-      <MyList type="row" sx={{ display: matches ? "none" : "flex" }}>
-        <ListItemIcon
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Input
-            placeholder="Search Designers(city, state, postcode)"
-            sx={{ width: "290px" }}
-          />
-          <SearchIcon />
-        </ListItemIcon>
+      <MyList type="row">
+        {/* <ListItemText>
+          <Typography>My Jobs</Typography>
+        </ListItemText>
+       
+        <ListItemText>
+          <Typography>Post Jobs</Typography>
+        </ListItemText> */}
+        {/* <ListItemText>
+          <Typography>Post Gigs</Typography>
+        </ListItemText> */}
+        <ListItemText>
+          <Typography>About Us</Typography>
+        </ListItemText>
+        <ListItemText>
+          <Typography>Hire Designers</Typography>
+        </ListItemText>
 
         <ListItemIcon
           sx={{
@@ -36,9 +40,20 @@ const Actions = ({ matches }) => {
             gap: "2px",
           }}
         >
-          <span>Join Us</span>
+          <Typography>Join Us</Typography>
           <PersonIcon />
         </ListItemIcon>
+        {/* 
+        <StyledBadge
+          overlap="circular"
+          anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+          variant="dot"
+        >
+          <Avatar
+            alt="Bibek"
+            src="https://images.pexels.com/photos/4052752/pexels-photo-4052752.jpeg?auto=compress&cs=tinysrgb&w=600"
+          />
+        </StyledBadge> */}
       </MyList>
     </Component>
   );

@@ -16,13 +16,18 @@ export const Data = styled(Box)(({ theme }) => ({
 
 export const DataImage = styled("img")(({ src, theme }) => ({
   src: `url(${src})`,
-  width: "100%",
+  width: "300px",
   height: "250px",
   background: Colors.light_gray,
   padding: "10px",
+  objectFit: "cover",
   [theme.breakpoints.down("md")]: {
-    width: "80%",
-    padding: "24px",
+    width: "250px",
+    padding: "10px",
+  },
+  [theme.breakpoints.down("sm")]: {
+    width: "150px",
+    padding: "10px",
   },
 }));
 

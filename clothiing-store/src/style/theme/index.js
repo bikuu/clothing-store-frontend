@@ -3,8 +3,8 @@ import { createTheme } from "@mui/material/styles";
 export const DrawerWidth = 250;
 
 export const Colors = {
-  primary: "#5f2c3e",
-  secondary: "#d1adcc",
+  primary: "#202b33",
+  secondary: "#fa5221",
   success: "#4CAF50",
   info: "#00a2ff",
   danger: "#FF5722",
@@ -13,8 +13,7 @@ export const Colors = {
   light: "#aaa",
   muted: "#abafb3",
   border: "#DDDFE1",
-  inverse: "#2F3D4A",
-  shaft: "#333",
+
   ///////////////
   // Grays
   ///////////////
@@ -46,7 +45,24 @@ const theme = createTheme({
         disableElevation: true,
       },
     },
-
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          width: DrawerWidth,
+          background: Colors.primary,
+          color: Colors.secondary,
+          borderRadius: "0px 100px 0px 0px",
+          borderRight: `1px solid ${Colors.primary}`,
+        },
+      },
+    },
+    MuiDivider: {
+      styleOverrides: {
+        root: {
+          borderColor: Colors.secondary,
+        },
+      },
+    },
   },
 });
 

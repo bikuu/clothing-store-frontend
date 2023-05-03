@@ -17,8 +17,9 @@ const Banner = () => {
         <BannerTitle variant="h2">New Designs</BannerTitle>
 
         <BannerDescription variant="subtitle">
-          dasas asfasf ffjkg gkhasfk, gvhklsfas klkgvaskfkv klgvaskf amcaskflh
-          sfc
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquet
+          enim tortor at auctor.
         </BannerDescription>
 
         <BannerShopButton color="secondary">Look Now</BannerShopButton>
