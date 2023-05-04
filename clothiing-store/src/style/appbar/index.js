@@ -59,7 +59,7 @@ export const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 export const ActionIconsContainerMobile = styled(Box)(() => ({
   display: "flex",
-  background: Colors.shaft,
+  background: Colors.dove_gray,
   position: "fixed",
   bottom: 0,
   left: 0,
@@ -73,10 +73,9 @@ export const ActionIconsContainerDesktop = styled(Box)(() => ({
   flexGrow: 1,
 }));
 
-
 export const DrawerCloseButton = styled(IconButton)(() => ({
-  position: 'absolute',
-  top: 10,
-  left: 250,
-  zIndex: 1999,      
+  position: "absolute",
+  top: 1,
+  left: 215,
+  zIndex: 1999,
 }));

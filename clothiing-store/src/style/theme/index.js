@@ -51,7 +51,7 @@ const theme = createTheme({
           width: DrawerWidth,
           background: Colors.primary,
           color: Colors.secondary,
-          borderRadius: "0px 100px 0px 0px",
+          borderRadius: "0px 30px 0px 0px",
           borderRight: `1px solid ${Colors.primary}`,
         },
       },

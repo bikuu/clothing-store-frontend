@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { Data, LookIn, DataImage } from "../../style/data";
 
 import DataMeta from "./DataMeta";

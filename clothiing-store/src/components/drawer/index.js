@@ -10,25 +10,36 @@ import CloseIcon from "@mui/icons-material/Close";
 import { DrawerCloseButton } from "../../style/appbar";
 import { Colors } from "../../style/theme";
 
+import { useSelector, useDispatch } from "react-redux";
+import { setDrawer } from "../../redux/slice/drawerSlice";
+
 const MiddleDivider = styled((props) => (
   <Divider variant="middle" {...props} />
 ))``;
 
 const AppDrawer = () => {
+  const dispatch = useDispatch();
+
+  const drawerOpen = useSelector((state) => state.drawer.data);
+
+  const handleSetData = () => {
+    dispatch(setDrawer(false));
+  };
+
   return (
     <>
-      {/* {drawerOpen && (
-        <DrawerCloseButton onClick={() => setDrawerOpen(false)}>
+      {drawerOpen && (
+        <DrawerCloseButton onClick={handleSetData}>
           <CloseIcon
             sx={{
-              fontSize: "2.5rem",
+              fontSize: "1.5rem",
               color: Colors.secondary,
             }}
           />
         </DrawerCloseButton>
-      )} */}
+      )}
 
-      <Drawer open={true}>
+      <Drawer open={drawerOpen}>
         <List>
           <ListItemButton>
             <ListItemText>Home</ListItemText>

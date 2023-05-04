@@ -7,7 +7,7 @@ import Promotions from "./components/promotionSlider";
 import DataList from "./components/dataList";
 import Footer from "./components/footer";
 import AppDrawer from "./components/drawer";
-
+import DataDetail from "./components/dataDetail";
 
 function App() {
   const theme = useTheme();
@@ -15,12 +15,13 @@ function App() {
 
   return (
     <Container maxWidth="xl" sx={{ background: "#fcfcfc" }}>
-      <Appbar matches={matches}/>
+      <Appbar matches={matches} />
       <Banner />
       <Promotions />
-      <DataList matches={matches} />
+      {/* <DataList matches={matches} />
       <Footer matches={matches} />
-      <AppDrawer/>
+      {matches && <AppDrawer />} */}
+      <DataDetail />
     </Container>
   );
 }

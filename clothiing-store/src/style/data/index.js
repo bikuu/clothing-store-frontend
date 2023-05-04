@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import { Button, IconButton } from "@mui/material";
+import { Button } from "@mui/material";
 import { Box } from "@mui/system";
-import { slideInBottom, slideInRight } from "../../animation";
+import { slideInBottom } from "../../animation";
 import { Colors } from "../theme";
 
 export const Data = styled(Box)(({ theme }) => ({
@@ -54,4 +54,53 @@ export const DataMetaWrapper = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
+}));
+
+export const DetailContainer = styled(Box)(({ theme }) => ({
+  display: "flex",
+  justifyContent: "center",
+  width: "100%",
+  height: "100%",
+  padding: "20px",
+  background: Colors.light_gray,
+  [theme.breakpoints.down("sm")]: {
+    flexDirection: "column",
+    alignItems: "center",
+  },
+}));
+
+export const ImageContainer = styled(Box)(({ theme }) => ({
+  height: "100%",
+  display: "flex",
+  justifyContent: "end",
+  background: Colors.light_gray,
+  [theme.breakpoints.down("md")]: {
+    width: "40%",
+    padding: "10px",
+  },
+}));
+export const ImageSlide = styled("img")(({ src, theme }) => ({
+  src: `url(${src})`,
+  height: "500px",
+  objectFit: "contain",
+  borderRadius: "5px",
+}));
+
+export const InfoContainer = styled(Box)(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  gap: "25px",
+  alignItems: "start",
+  marginTop: "20px",
+  marginLeft: "25px",
+  marginBottom: "50px",
+  [theme.breakpoints.down("sm")]: {
+    alignItems: "center",
+    gap: "15px",
+  },
+}));
+
+export const CustomizedText = styled("span")(() => ({
+  fontSize: "20px",
+  fontWeight: "400",
 }));
