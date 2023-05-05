@@ -75,6 +75,7 @@ export const ImageContainer = styled(Box)(({ theme }) => ({
   justifyContent: "end",
   background: Colors.light_gray,
   [theme.breakpoints.down("md")]: {
+    justifyContent: "center",
     width: "40%",
     padding: "10px",
   },

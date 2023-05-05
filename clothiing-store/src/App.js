@@ -2,12 +2,13 @@ import { Container } from "@mui/material";
 import Appbar from "./components/appbar";
 import { useTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
-import Banner from "./components/banner";
-import Promotions from "./components/promotionSlider";
-import DataList from "./components/dataList";
+
 import Footer from "./components/footer";
 import AppDrawer from "./components/drawer";
-import DataDetail from "./components/dataDetail";
+import Home from "./pages/home";
+import DetailPage from "./pages/jobs/gigs";
+import { Login } from "./components/login";
+import Register from "./components/register";
 
 function App() {
   const theme = useTheme();
@@ -16,12 +17,13 @@ function App() {
   return (
     <Container maxWidth="xl" sx={{ background: "#fcfcfc" }}>
       <Appbar matches={matches} />
-      <Banner />
-      <Promotions />
-      {/* <DataList matches={matches} />
-      <Footer matches={matches} />
-      {matches && <AppDrawer />} */}
-      <DataDetail />
+      {/* <Home matches={matches} />
+      <DetailPage /> */}
+
+      <Login />
+      {/* <Register /> */}
+      {/* <Footer matches={matches} /> */}
+      {matches && <AppDrawer />}
     </Container>
   );
 }

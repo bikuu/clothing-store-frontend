@@ -42,6 +42,7 @@ const DataDetail = () => {
           </CustomizedText>
         </span>
         <Button>Apply Now</Button>
+        <Button>Edit</Button>
       </InfoContainer>
     </DetailContainer>
   );

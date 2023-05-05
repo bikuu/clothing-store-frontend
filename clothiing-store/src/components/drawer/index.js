@@ -34,6 +34,7 @@ const AppDrawer = () => {
             sx={{
               fontSize: "1.5rem",
               color: Colors.secondary,
+              zIndex: 999999,
             }}
           />
         </DrawerCloseButton>
