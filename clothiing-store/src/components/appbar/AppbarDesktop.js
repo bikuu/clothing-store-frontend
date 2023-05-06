@@ -7,12 +7,15 @@ import {
 import { AppbarContainer, AppbarHeader, MyList } from "../../style/appbar";
 import Actions from "./Actions";
 import SearchIcon from "@mui/icons-material/Search";
+import { Link } from "react-router-dom";
 
 const AppbarDesktop = ({ matches }) => {
   return (
     <AppbarContainer>
       <AppbarHeader>
-        Clothing <span style={{ color: "#fa5221" }}>Store</span>
+        <Link to={"/"} style={{ textDecoration: "none" }}>
+          Clothing <span style={{ color: "#fa5221" }}>Store</span>
+        </Link>
       </AppbarHeader>
       <MyList type="row">
         <ListItemIcon

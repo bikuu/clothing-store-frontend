@@ -7,6 +7,7 @@ import {
 } from "../../style/appbar";
 import PersonIcon from "@mui/icons-material/Person";
 import Avatar from "@mui/material/Avatar";
+import { Link } from "react-router-dom";
 
 const Actions = ({ matches }) => {
   const Component = matches
@@ -40,8 +41,20 @@ const Actions = ({ matches }) => {
             gap: "2px",
           }}
         >
-          <Typography>Join Us</Typography>
-          <PersonIcon />
+          {" "}
+          <Link
+            to={"/login"}
+            style={{
+              textDecoration: "none",
+              display: "flex",
+              color: "black",
+    
+            }}
+          >
+            {" "}
+            <Typography>Join Us</Typography>
+            <PersonIcon />{" "}
+          </Link>
         </ListItemIcon>
         {/* 
         <StyledBadge

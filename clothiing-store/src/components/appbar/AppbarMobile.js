@@ -7,6 +7,7 @@ import { IconButton, Input } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { setDrawer } from "../../redux/slice/drawerSlice";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const AppbarMobile = ({ matches }) => {
   const dispatch = useDispatch();
@@ -23,7 +24,9 @@ const AppbarMobile = ({ matches }) => {
       </IconButton>
       {!searchOpen ? (
         <AppbarHeader textAlign={"center"} variant="h4">
-          Clothing <span style={{ color: "#fa5221" }}>Store</span>
+          <Link to={"/"} style={{ textDecoration: "none" }}>
+            Clothing <span style={{ color: "#fa5221" }}>Store</span>
+          </Link>{" "}
         </AppbarHeader>
       ) : (
         <Input

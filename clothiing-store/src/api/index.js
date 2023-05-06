@@ -20,15 +20,22 @@ export const signUp = (data) => API.post("/register", data);
 
 export const getUserId = (id) => API.get(`/user/${id}`);
 export const getUser = () => API.get(`/user/`);
+export const logoutUser = () => API.get(`/logout`);
 
-export const getAllProducts = () => API.get("/products");
-export const getProduct = (id) => API.get(`/products/${id}`);
-export const deleteProduct = (id) => API.delete(`/products/${id}`);
-export const updateProduct = (id, data) => API.put(`/products/${id}`, data);
-export const updateProductReview = (id, data) =>
-  API.put(`/products/review/${id}`, data);
-export const uploadProducts = (data) => API.post("/products", data);
+export const getAllJobs = () => API.get("/job");
+export const getJob = (id) => API.get(`/job/${id}`);
+export const deleteJob = (id) => API.delete(`/job/${id}`);
+export const updateJob = (id, data) => API.put(`/job/${id}`, data);
+export const createJob = (data) => API.post("/job/create", data);
 
-export const getAllOrders = () => API.get("/orders");
-export const postOrders = (data) => API.post("/orders", data);
-export const getOrder = (id) => API.get(`/orders/${id}`);
+export const getAllGigs = () => API.get("/workfolio");
+export const getGig = (id) => API.get(`/workfolio/${id}`);
+export const deleteGig = (id) => API.delete(`/workfolio/${id}`);
+export const updateGig = (id, data) => API.put(`/workfolio/${id}`, data);
+export const createGig = (data) => API.post("/workfolio/create", data);
+
+export const getAllAppliedUser = () => API.get("/jobquotas");
+export const applyForJob = (data) => API.post("/jobquotas/create", data);
+export const updateApplyForJob = (id, data) =>
+  API.put(`/jobquotas/${id}`, data);
+export const deleteAppliedJob = (id) => API.delete(`/jobquotas/${id}`);
