@@ -10,13 +10,14 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { signUp } from "../../api";
 
 const theme = createTheme();
 
 export default function Register() {
   //   const [role, setRole] = useState("");
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     first_name: "",
