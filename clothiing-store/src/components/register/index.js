@@ -11,6 +11,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { Link } from "react-router-dom";
+import { signUp } from "../../api";
 
 const theme = createTheme();
 
@@ -24,10 +25,6 @@ export default function Register() {
     role: "consumer",
     password: "",
   });
-
-  //   const handleChange = (event) => {
-  //     setRole(event.target.value);
-  //   };
 
   const [err, setErr] = useState({
     first_name: "",
@@ -85,6 +82,30 @@ export default function Register() {
         };
       });
     }
+
+    signUp(formData)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data?.data) {
+          navigate("/login");
+        } else {
+          console.log(res.data.detail);
+          let errors = res.data.detail;
+        }
+      })
+      .catch((err) => {
+        // console.log({ err })
+        console.log(err);
+        // let errors = err;
+
+        // let temp = {};
+
+        // errors.forEach((el) => {
+        //   temp[el.param] = el.msg;
+        // });
+
+        // setErr(temp);
+      });
   };
 
   return (
@@ -118,7 +139,7 @@ export default function Register() {
                   name="first_name"
                   helperText={err.first_name && err.first_name}
                   autoFocus
-                  onClick={handleChange}
+                  onChange={handleChange}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -129,7 +150,7 @@ export default function Register() {
                   label="Last Name"
                   name="last_name"
                   helperText={err.last_name && err.last_name}
-                  onClick={handleChange}
+                  onChange={handleChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -141,7 +162,7 @@ export default function Register() {
                   name="email"
                   type="email"
                   helperText={err.email && err.email}
-                  onClick={handleChange}
+                  onChange={handleChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -153,7 +174,7 @@ export default function Register() {
                   type="password"
                   id="password"
                   helperText={err.password && err.password}
-                  onClick={handleChange}
+                  onChange={handleChange}
                 />
               </Grid>
               <Grid item xs={12}>

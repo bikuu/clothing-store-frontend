@@ -11,10 +11,14 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
 import { logIn } from "../../api";
 import { Link } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { setUser } from "../../redux/slice/userSlice";
 const theme = createTheme();
 
 export const Login = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     email: "bibek@gmail.com",
     password: "password",
@@ -23,7 +27,13 @@ export const Login = () => {
   function handleSubmit(e) {
     e.preventDefault();
     logIn(formData).then((res) => {
-      console.log(res);
+      console.log(res.data.data);
+      dispatch(setUser(res.data.data)); // cannot call setUser function direction, instaed we should use dispatch
+      localStorage.setItem(
+        "access_token",
+        JSON.stringify(res.data.token.token)
+      );
+      navigate("/");
     });
   }
 

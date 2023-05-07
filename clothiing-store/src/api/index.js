@@ -24,6 +24,7 @@ export const logoutUser = () => API.get(`/logout`);
 
 export const getAllJobs = () => API.get("/job");
 export const getJob = (id) => API.get(`/job/${id}`);
+export const searchJob = (data) => API.get(`/job/search?location=${data}`);
 export const deleteJob = (id) => API.delete(`/job/${id}`);
 export const updateJob = (id, data) => API.put(`/job/${id}`, data);
 export const createJob = (data) => API.post("/job/create", data);

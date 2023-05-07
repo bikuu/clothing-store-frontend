@@ -12,6 +12,7 @@ import { Colors } from "../../style/theme";
 
 import { useSelector, useDispatch } from "react-redux";
 import { setDrawer } from "../../redux/slice/drawerSlice";
+import { logoutUser } from "../../api";
 
 const MiddleDivider = styled((props) => (
   <Divider variant="middle" {...props} />
@@ -21,6 +22,11 @@ const AppDrawer = () => {
   const dispatch = useDispatch();
 
   const drawerOpen = useSelector((state) => state.drawer.data);
+
+  const handleLogout = () => {
+    // localStorage.removeItem("access_token")
+    dispatch(logoutUser());
+  };
 
   const handleSetData = () => {
     dispatch(setDrawer(false));
@@ -34,7 +40,7 @@ const AppDrawer = () => {
             sx={{
               fontSize: "1.5rem",
               color: Colors.secondary,
-              zIndex: 999999,
+              zIndex: 9999999,
             }}
           />
         </DrawerCloseButton>
@@ -58,7 +64,7 @@ const AppDrawer = () => {
           <ListItemButton>
             <ListItemText>Contact Us</ListItemText>
           </ListItemButton>
-          <ListItemButton>
+          <ListItemButton onClick={handleLogout}>
             <ListItemText>Log Out</ListItemText>
           </ListItemButton>
           <MiddleDivider />

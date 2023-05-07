@@ -1,7 +1,8 @@
-import {  useState } from "react";
+import { useState } from "react";
 import { Data, LookIn, DataImage } from "../../style/data";
 
 import DataMeta from "./DataMeta";
+import { Link } from "react-router-dom";
 
 const DataCardDesktop = ({ data, matches }) => {
   const [showOptions, setShowOptions] = useState(false);
@@ -17,8 +18,13 @@ const DataCardDesktop = ({ data, matches }) => {
       <Data onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         <DataImage src={data.image} />
         {(showOptions || matches) && (
-          <LookIn show={showOptions} variant="contained">
-            View
+          <LookIn variant="contained">
+            <Link
+              to={`/job/${data.id}`}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              View{" "}
+            </Link>
           </LookIn>
         )}
       </Data>

@@ -1,16 +1,17 @@
+import { Link } from "react-router-dom";
 import { Data, LookIn, DataImage } from "../../style/data";
 import DataMeta from "./DataMeta";
 
 const DataCardMobile = ({ data, matches }) => {
-
-
   return (
     <>
-      <Data >
+      <Data>
         <DataImage src={data.image} />
         <DataMeta data={data} matches={matches} />
       </Data>
-      <LookIn variant="contained">View</LookIn>
+      <Link to={`/job/${data.id}`}>
+        <LookIn variant="contained">View</LookIn>
+      </Link>
     </>
   );
 };

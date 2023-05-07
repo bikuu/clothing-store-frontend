@@ -8,65 +8,80 @@ import {
 import PersonIcon from "@mui/icons-material/Person";
 import Avatar from "@mui/material/Avatar";
 import { Link } from "react-router-dom";
+import { CONSUMER, MAKER } from "../../constants/role";
+import { useSelector } from "react-redux";
 
 const Actions = ({ matches }) => {
+  const user = useSelector((redux_state) => redux_state.user.data);
+
   const Component = matches
     ? ActionIconsContainerMobile
     : ActionIconsContainerDesktop;
   return (
     <Component>
       <MyList type="row">
-        {/* <ListItemText>
-          <Typography>My Jobs</Typography>
-        </ListItemText>
-       
-        <ListItemText>
-          <Typography>Post Jobs</Typography>
-        </ListItemText> */}
-        {/* <ListItemText>
-          <Typography>Post Gigs</Typography>
-        </ListItemText> */}
-        <ListItemText>
-          <Typography>About Us</Typography>
-        </ListItemText>
-        <ListItemText>
-          <Typography>Hire Designers</Typography>
-        </ListItemText>
+        {user && (
+          <ListItemText>
+            <Typography>My Jobs</Typography>
+          </ListItemText>
+        )}
 
-        <ListItemIcon
-          sx={{
-            display: "flex",
-            justifyContent: "end",
-            alignItems: "center",
-            gap: "2px",
-          }}
-        >
-          {" "}
-          <Link
-            to={"/login"}
-            style={{
-              textDecoration: "none",
+        {user.role === CONSUMER ? (
+          <ListItemText>
+            <Typography>Post Jobs</Typography>
+          </ListItemText>
+        ) : (
+          <ListItemText>
+            <Typography>Post Gigs</Typography>
+          </ListItemText>
+        )}
+
+        {!user && (
+          <>
+            <ListItemText>
+              <Typography>About Us</Typography>
+            </ListItemText>
+            <ListItemText>
+              <Typography>Hire Designers</Typography>
+            </ListItemText>
+          </>
+        )}
+
+        {!user ? (
+          <ListItemIcon
+            sx={{
               display: "flex",
-              color: "black",
-    
+              justifyContent: "end",
+              alignItems: "center",
+              gap: "2px",
             }}
           >
             {" "}
-            <Typography>Join Us</Typography>
-            <PersonIcon />{" "}
-          </Link>
-        </ListItemIcon>
-        {/* 
-        <StyledBadge
-          overlap="circular"
-          anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-          variant="dot"
-        >
-          <Avatar
-            alt="Bibek"
-            src="https://images.pexels.com/photos/4052752/pexels-photo-4052752.jpeg?auto=compress&cs=tinysrgb&w=600"
-          />
-        </StyledBadge> */}
+            <Link
+              to={"/login"}
+              style={{
+                textDecoration: "none",
+                display: "flex",
+                color: "black",
+              }}
+            >
+              {" "}
+              <Typography>Join Us</Typography>
+              <PersonIcon />{" "}
+            </Link>
+          </ListItemIcon>
+        ) : (
+          <StyledBadge
+            overlap="circular"
+            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+            variant="dot"
+          >
+            <Avatar
+              alt="Bibek"
+              src="https://images.pexels.com/photos/4052752/pexels-photo-4052752.jpeg?auto=compress&cs=tinysrgb&w=600"
+            />
+          </StyledBadge>
+        )}
       </MyList>
     </Component>
   );
