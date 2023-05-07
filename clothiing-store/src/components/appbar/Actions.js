@@ -32,7 +32,13 @@ const Actions = ({ matches }) => {
           </ListItemText>
         ) : (
           <ListItemText>
-            <Typography>Post Gigs</Typography>
+            <Link
+              to={"/workfolio/create"}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              {" "}
+              <Typography>Post Gigs</Typography>
+            </Link>
           </ListItemText>
         )}
 

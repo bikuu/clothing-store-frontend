@@ -66,13 +66,13 @@ function App() {
         <Route path="job">
           <Route index element={<Home />} />
           <Route path=":id" element={<DetailPage />} />
-          <Route path=":id" element={<Upsert />} />
+          <Route path="edit/:id" element={<Upsert />} />
           <Route path="create" element={<Upsert />} />{" "}
         </Route>
         <Route path="workfolio">
           <Route index element={<Home />} />
           <Route path=":id" element={<DetailPage />} />
-          <Route path=":id" element={<Upsert />} />
+          <Route path="edit/:id" element={<Upsert />} />
           <Route path="create" element={<Upsert />} />{" "}
         </Route>
         {/* <Route path="jobquotas">
@@ -81,6 +81,8 @@ function App() {
           <Route path=":id" element={<Upsert />} />
           <Route path="create" element={<Upsert />} />{" "}
         </Route> */}
+
+        <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>
       {matches && <AppDrawer />}
     </Container>

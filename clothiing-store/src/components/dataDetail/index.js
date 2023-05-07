@@ -10,8 +10,10 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { getJob } from "./../../api/index";
+import { Link } from "react-router-dom";
 const DataDetail = () => {
-  const [data, setData] = useState({});
+  const [result, setResult] = useState({});
+
   const { id } = useParams();
   const user = useSelector((redux_store) => {
     return redux_store.user.data;
@@ -19,8 +21,8 @@ const DataDetail = () => {
 
   function fetchDataDetail() {
     getJob(id).then((res) => {
-      console.log(res);
-      // setData(res.data?.data);
+      console.log(res.data.data);
+      setResult(res.data.data);
     });
   }
 
@@ -31,59 +33,70 @@ const DataDetail = () => {
   return (
     <>
       <DetailContainer>
-        <ImageContainer>
-          {data?.images?.map((image, index) => (
+        <ImageContainer overflow={"hidden"}>
+          {result?.images?.map((image, idx) => (
             <ImageSlide src={image} />
           ))}
         </ImageContainer>
         <InfoContainer>
           <span>
-            <CustomizedText>{data?.posted_by}</CustomizedText> is looking for :
+            <CustomizedText>{result?.posted_by}</CustomizedText> is looking for
+            :
           </span>
-          <Typography variant="h5">{data?.title}</Typography>
+          <Typography variant="h5">{result?.title}</Typography>
           <span>
             Categories :{" "}
             <CustomizedText>
               {" "}
-              {data.categories?.map((category) => `${category}, `)}
+              {result.categories?.map((category) => `${category}, `)}
             </CustomizedText>
           </span>
           <span>
-            Starting Price : <CustomizedText>$AUD {data?.price}</CustomizedText>
+            Starting Price :{" "}
+            <CustomizedText>$AUD {result?.price}</CustomizedText>
           </span>
 
           <span>
             Location :{" "}
             <CustomizedText>
               {
-                (data?.location.state,
-                data?.location.city,
-                data?.location.postalcode)
+                (result?.location?.state,
+                result?.location?.city,
+                result?.location?.postalcode)
               }
             </CustomizedText>
           </span>
           <span>
             Applied Users :
-            <CustomizedText> {data?.totalQuotation}</CustomizedText>
+            <CustomizedText> {result?.totalQuotation}</CustomizedText>
           </span>
           <span>
             Status :
             <CustomizedText> InterViewing - 2 , Pending - 3</CustomizedText>
           </span>
           <span>
-            Description : <CustomizedText>{data?.description}</CustomizedText>
+            Description : <CustomizedText>{result?.description}</CustomizedText>
           </span>
-          <Button>Apply Now</Button>
-          <Button>Edit</Button>
+          {user.id === result.user_id ? (
+            <Link to={`/edit/${id}`}>
+              {" "}
+              <Button>Edit</Button>
+            </Link>
+          ) : (
+            <Button>Apply Now</Button>
+          )}
         </InfoContainer>
       </DetailContainer>
-      <Grid sx={12}>
-        <Box>hello</Box>
-        <Box>hello</Box>
-        <Box>hello</Box>
-        <Box>hello</Box>
-        <Box>hello</Box>
-      </Grid>
+      {user.id === result.user_id && (
+        <Grid sx={12} display={"flex"}>
+          {result.appliedUser?.map((data) => {
+            <Box>
+              {" "}
+              {data.first_name} {data.last_name}{" "}
+            </Box>;
+          })}
+        </Grid>
+      )}
     </>
   );
 };

@@ -71,6 +71,7 @@ export const DetailContainer = styled(Box)(({ theme }) => ({
 
 export const ImageContainer = styled(Box)(({ theme }) => ({
   height: "100%",
+  width: "50%",
   display: "flex",
   justifyContent: "end",
   background: Colors.light_gray,
@@ -82,6 +83,7 @@ export const ImageContainer = styled(Box)(({ theme }) => ({
 }));
 export const ImageSlide = styled("img")(({ src, theme }) => ({
   src: `url(${src})`,
+  width: "50%",
   height: "500px",
   objectFit: "contain",
   borderRadius: "5px",
