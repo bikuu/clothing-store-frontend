@@ -59,7 +59,7 @@ function App() {
     <Container maxWidth="xl" sx={{ background: "#fcfcfc" }}>
       <Appbar matches={matches} />
       <Routes>
-        <Route path="/" element={<Home matches={matches} />} />
+        <Route exact path="/" element={<Home matches={matches} />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
 
