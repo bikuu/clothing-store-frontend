@@ -64,13 +64,13 @@ function App() {
         <Route path="register" element={<Register />} />
 
         <Route path="job">
-          <Route index element={<Home />} />
+          <Route index element={<Home matches={matches} />} />
           <Route path=":id" element={<DetailPage />} />
           <Route path="edit/:id" element={<Upsert />} />
           <Route path="create" element={<Upsert />} />{" "}
         </Route>
         <Route path="workfolio">
-          <Route index element={<Home />} />
+          <Route index element={<Home matches={matches} />} />
           <Route path=":id" element={<DetailPage />} />
           <Route path="edit/:id" element={<Upsert />} />
           <Route path="create" element={<Upsert />} />{" "}
@@ -82,7 +82,7 @@ function App() {
           <Route path="create" element={<Upsert />} />{" "}
         </Route> */}
 
-        <Route path="*" element={<h1>Not Found</h1>} />
+        <Route path="*" element={<Home matches={matches} />} />
       </Routes>
       {matches && <AppDrawer />}
     </Container>
